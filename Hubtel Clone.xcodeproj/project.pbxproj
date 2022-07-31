@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0405A8722897015900E6E935 /* PromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405A8712897015900E6E935 /* PromoCell.swift */; };
 		04F269552895503A007464AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F269542895503A007464AB /* AppDelegate.swift */; };
 		04F269572895503A007464AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F269562895503A007464AB /* SceneDelegate.swift */; };
 		04F269592895503A007464AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F269582895503A007464AB /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0405A8712897015900E6E935 /* PromoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCell.swift; sourceTree = "<group>"; };
 		04F269512895503A007464AB /* Hubtel Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hubtel Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F269542895503A007464AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F269562895503A007464AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				04F26970289554C8007464AB /* HeaderCell.swift */,
 				04F2696E289550BF007464AB /* MenuCell.swift */,
 				04F2697428955615007464AB /* ListSections.swift */,
+				0405A8712897015900E6E935 /* PromoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				04F2696F289550BF007464AB /* MenuCell.swift in Sources */,
 				04F2697528955615007464AB /* ListSections.swift in Sources */,
 				04F2696A28955069007464AB /* DashboardVC.swift in Sources */,
+				0405A8722897015900E6E935 /* PromoCell.swift in Sources */,
 				04F269552895503A007464AB /* AppDelegate.swift in Sources */,
 				04F26973289555F0007464AB /* MockData.swift in Sources */,
 				04F269572895503A007464AB /* SceneDelegate.swift in Sources */,

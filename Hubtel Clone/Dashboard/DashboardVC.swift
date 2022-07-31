@@ -76,7 +76,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         collectionview.register(MenuCell.self, forCellWithReuseIdentifier: MenuCell.identifier)
      
         
-       // collectionview.register(BottomFeedCell.self, forCellWithReuseIdentifier: BottomFeedCell.identifier)
+        collectionview.register(PromoCell.self, forCellWithReuseIdentifier: PromoCell.identifier)
         
      
         collectionview.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.identifier)
@@ -125,13 +125,14 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 section.supplementariesFollowContentInsets = false
                 
                 return section
-            }else{
+            }else if sectionIndex == 1{
                 let section = self.sections[sectionIndex - 1].title
                 
                 switch section{
                 case "menu":
                     //item
-                    let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1)))
+                    
+                    
                     
                     
                     
@@ -195,7 +196,24 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 
             }
             
-        }
+            }else{
+                //item
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                //group
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3)), subitems: [item])
+                //section
+                let section = NSCollectionLayoutSection(group: group)
+                //scroll behavior/direction
+                section.orthogonalScrollingBehavior = .none
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 10, leading: 15, bottom: 10, trailing: 15)
+                
+                
+                //prevent header from following padding insets of main cell
+                section.supplementariesFollowContentInsets = false
+                
+                return section
+            }
          
                 
       
@@ -212,15 +230,18 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     
     
     func numberOfSections (in collectionview: UICollectionView) -> Int {
-        return sections.count + 1
+        return sections.count + 2
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0{
             return 1
-        }else{
+            
+        }else if section == 1{
             return sections[section - 1].data.count
+        } else{
+            return 1
         }
     }
     
@@ -234,7 +255,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             cell.backgroundColor = .lightGray
             
             return cell
-        }else{
+        }else if(indexPath.section == 1){
             
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCell.identifier , for: indexPath) as! MenuCell
@@ -247,6 +268,12 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             return cell
                // return HeaderCell()
             }
+        else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoCell.identifier , for: indexPath) as! PromoCell
+            
+            
+            return cell
+        }
         
         
         
