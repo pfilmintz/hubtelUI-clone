@@ -13,7 +13,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     
    // var sections = MockData.shared.pageData
     
-    struct Section {
+    struct MenuSection {
         let title: String
         let data: [MenuItem]
     }
@@ -36,11 +36,11 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     var transactionSections = [TransactionSection]()
     
     var transactions = [Transaction]()
-    var transactions2 = [Transaction]()
-    var transactions3 = [Transaction]()
+    var newtransactions = [Transaction]()
     
     
-    var sections = [Section]()
+    
+    var menusection = [MenuSection]()
     
     var banner: bannerItem?
     var menuitems = [MenuItem]()
@@ -50,68 +50,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         
         
         
-        banner = bannerItem(balanceVale: "34")
-        
-        
-        let trans1 = Transaction(name: "SportyBet", time: "11:00 GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 10 2022" )
-        
-        let trans2 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 5 2022" )
-        let trans3 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 5 2022" )
-        let trans4 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 5 2022" )
-        let trans5 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 3 2022" )
-        let trans6 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 3 2022" )
-        let trans7 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 10 2022" )
-        
-        
-        transactions.append(trans1)
-        
-        transactions2.append(trans2)
-        transactions2.append(trans3)
-        transactions2.append(trans4)
-        
-        
-        transactions3.append(trans5)
-        transactions3.append(trans6)
-        
-        
-        let transactionSection1 = TransactionSection(date: "Mar 10 2022", transactions: transactions)
-        let transactionSection2 = TransactionSection(date: "Mar 5 2022", transactions: transactions2)
-        let transactionSection3 = TransactionSection(date: "Mar 3 2022", transactions: transactions3)
-        
-        transactionSections.append(transactionSection1)
-        transactionSections.append(transactionSection2)
-        transactionSections.append(transactionSection3)
-        
-        
-        let menu1 = MenuItem(title: "Groceries", image: "Groceries")
-        let menu2 = MenuItem(title: "Food", image: "Food")
-        let menu3 = MenuItem(title: "Shops", image: "Shops")
-        
-        let menu4 = MenuItem(title: "Send Money", image: "mentor")
-        let menu5 = MenuItem(title: "Top Up & Betting", image: "mentor")
-        let menu6 = MenuItem(title: "Pay Bills", image: "mentor")
-        
-        let menu7 = MenuItem(title: "SMS & Money", image: "mentor")
-        let menu8 = MenuItem(title: "Request Money", image: "mentor")
-        
-        
-        
-        
-        menuitems.append(menu1)
-        menuitems.append(menu2)
-        menuitems.append(menu3)
-        menuitems.append(menu4)
-        menuitems.append(menu5)
-        menuitems.append(menu6)
-        
-        menuitems.append(menu7)
-        menuitems.append(menu8)
-        
-        let section2 = Section(title:"menu", data: menuitems)
-        
-        sections.append(section2)
-        
-        
+        getItems()
         
         
         collectionview = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
@@ -155,6 +94,100 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     }
     
     
+    func getItems(){
+        
+        
+        banner = bannerItem(balanceVale: "34")
+        
+        let menu1 = MenuItem(title: "Groceries", image: "Groceries")
+        let menu2 = MenuItem(title: "Food", image: "Food")
+        let menu3 = MenuItem(title: "Shops", image: "Shops")
+        
+        let menu4 = MenuItem(title: "Send Money", image: "mentor")
+        let menu5 = MenuItem(title: "Top Up & Betting", image: "mentor")
+        let menu6 = MenuItem(title: "Pay Bills", image: "mentor")
+        
+        let menu7 = MenuItem(title: "SMS & Money", image: "mentor")
+        let menu8 = MenuItem(title: "Request Money", image: "mentor")
+        
+        
+        
+        
+        menuitems.append(menu1)
+        menuitems.append(menu2)
+        menuitems.append(menu3)
+        menuitems.append(menu4)
+        menuitems.append(menu5)
+        menuitems.append(menu6)
+        
+        menuitems.append(menu7)
+        menuitems.append(menu8)
+        
+        let section = MenuSection(title:"menu", data: menuitems)
+        
+        menusection.append(section)
+        
+        
+        let trans1 = Transaction(name: "SportyBet", time: "03:55 GMT", compName: "SportyBet", amount: "GHS 99.00", isDone: true,date:"Mar 10 2022" )
+        
+        let trans2 = Transaction(name: "SportyBet", time: "02:23 GMT", compName: "SportyBet", amount: "GHS 50.00", isDone: true,date:"Mar 5 2022" )
+        let trans3 = Transaction(name: "SportyBet", time: "02:22 GMT", compName: "SportyBet", amount: "GHS 13.00", isDone: true,date:"Mar 5 2022" )
+        let trans4 = Transaction(name: "SportyBet", time: "01:51GMT", compName: "SportyBet", amount: "GHS 10.00", isDone: true,date:"Mar 5 2022" )
+        let trans5 = Transaction(name: "SportyBet", time: "17:39GMT", compName: "SportyBet", amount: "GHS 39.00", isDone: true,date:"Mar 3 2022" )
+        let trans6 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 3 2022" )
+        let trans7 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 10 2022" )
+        
+        
+        
+        transactions.append(trans1)
+        transactions.append(trans4)
+        transactions.append(trans5)
+      //  transactions.append(trans6)
+        transactions.append(trans2)
+        transactions.append(trans3)
+        
+        
+        
+        
+        
+        var dates = [String]()
+
+        //getting dates from transactions
+        for item in transactions {
+            //   print("\(key) : \(value)")
+            if(dates.contains(item.date) != true){
+                dates.append(item.date)
+            }
+         
+           }
+
+        //using dates to sort transactions in date
+        for date in dates {
+
+            for item in transactions {
+                if(date == item.date){
+                    
+                    //appending transaction with particular date in group
+                    newtransactions.append(item)
+                    
+                    
+            }
+            }
+            //appending group transactions into transaction section
+            transactionSections.append(TransactionSection(date: date, transactions: newtransactions))
+            
+            //clearing group transaction for new date
+            newtransactions.removeAll()
+            
+        }
+        
+        
+        
+       
+        
+    }
+    
+    
     func createLayout() -> UICollectionViewCompositionalLayout{
         UICollectionViewCompositionalLayout{[weak self] sectionIndex, layoutEnvironment in
             guard let self = self else {return nil}
@@ -178,7 +211,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 
                 return section
             }else if sectionIndex == 1{
-                let section = self.sections[sectionIndex - 1].title
+                let section = self.menusection[sectionIndex - 1].title
                 
                 switch section{
                 case "menu":
@@ -292,7 +325,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 
 
                 let headerHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                             heightDimension: .estimated(24))
+                                                             heightDimension: .estimated(30))
                     
                 let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerHeaderSize,elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 
@@ -323,7 +356,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     
     
     func numberOfSections (in collectionview: UICollectionView) -> Int {
-        return sections.count + 2 + transactionSections.count
+        return menusection.count + 2 + transactionSections.count
         
     }
     
@@ -332,7 +365,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             return 1
             
         }else if section == 1{
-            return sections[section - 1].data.count
+            return menusection[section - 1].data.count
         } else if section == 2{
             return 1
         }else{
@@ -355,7 +388,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCell.identifier , for: indexPath) as! MenuCell
             
-            let title = sections[indexPath.section - 1].data[indexPath.row].title
+            let title = menusection[indexPath.section - 1].data[indexPath.row].title
             
             cell.itemLabel.text = title
            
@@ -394,9 +427,12 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
             
             header.headerlabel.font = UIFont.boldSystemFont(ofSize: 22)
+            header.headerlabel.text = "Good evening, PHILIP"
+            header.backgroundColor = nil
             
             if(indexPath.section == 2){
-            header.headerlabel.text = "Transactions"
+            header.headerlabel.font = UIFont.boldSystemFont(ofSize: 17)
+            header.headerlabel.text = "Recent transactions"
             }
             if(indexPath.section > 2){
                 

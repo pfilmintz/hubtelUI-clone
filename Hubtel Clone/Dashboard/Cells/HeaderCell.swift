@@ -15,7 +15,7 @@ class HeaderCell: UICollectionViewCell {
     var headerlabel: UILabel = {
         
         let headerlabel = UILabel()
-        headerlabel.text = "Good evening, PHILIP"
+      
         headerlabel.font = headerlabel.font.withSize(22)
         return headerlabel
         

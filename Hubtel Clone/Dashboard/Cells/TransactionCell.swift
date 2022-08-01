@@ -13,7 +13,7 @@ class TransactionCell: UICollectionViewCell {
     
     var compTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Hubtel Balance"
+        
         label.font = label.font.withSize(12)
         label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
@@ -22,7 +22,7 @@ class TransactionCell: UICollectionViewCell {
     
     var compLabel: UILabel = {
         let label = UILabel()
-        label.font = label.font.withSize(12)
+        label.font = label.font.withSize(11)
         
         return label
         
