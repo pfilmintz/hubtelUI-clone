@@ -22,7 +22,7 @@ class TopBannerCell: UICollectionViewCell {
     var balanceValueLabel: UILabel = {
         let label = UILabel()
         label.text = "GHS 0.00"
-        
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
         
     }()
@@ -40,8 +40,8 @@ class TopBannerCell: UICollectionViewCell {
         
         button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         button.layer.cornerRadius =   button.frame.size.width / 2
-        
-        button.setImage(UIImage(systemName: "person.circle"), for: .normal)
+        button.backgroundColor = .white
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
             
             return button
         
@@ -56,17 +56,21 @@ class TopBannerCell: UICollectionViewCell {
     var cardsLabel: UILabel = {
         let label = UILabel()
         label.text = "Cards & Wallets"
-        
+        label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
         
     }()
     
-    var cardsImgView: UIImageView = {
-        let cardimage = UIImageView()
-        cardimage.clipsToBounds = true
-        cardimage.backgroundColor = .gray
+    var cardsButton: UIButton = {
+        let cardbutton = UIButton()
+        cardbutton.clipsToBounds = true
+        cardbutton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        cardbutton.layer.cornerRadius =   cardbutton.frame.size.width / 2
+        cardbutton.backgroundColor = .white
+        cardbutton.setImage(#imageLiteral(resourceName: "wallet"), for: .normal)
+        cardbutton.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
         
-        return cardimage
+        return cardbutton
         
     }()
     
@@ -87,7 +91,7 @@ class TopBannerCell: UICollectionViewCell {
         contentView.addSubview(balanceBtn)
         contentView.addSubview(cardsView)
         cardsView.addSubview(cardsLabel)
-        cardsView.addSubview(cardsImgView)
+        cardsView.addSubview(cardsButton)
         
         
         
@@ -103,7 +107,7 @@ class TopBannerCell: UICollectionViewCell {
         
         
         cardsView.translatesAutoresizingMaskIntoConstraints = false
-        cardsImgView.translatesAutoresizingMaskIntoConstraints = false
+        cardsButton.translatesAutoresizingMaskIntoConstraints = false
         cardsLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -133,15 +137,15 @@ class TopBannerCell: UICollectionViewCell {
       //      cardsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         //    cardsView.widthAnchor.constraint(equalToConstant: 144),
             
-            cardsImgView.leadingAnchor.constraint(equalTo: cardsView.leadingAnchor),
-            cardsImgView.widthAnchor.constraint(equalToConstant: 30),
-            cardsImgView.heightAnchor.constraint(equalToConstant: 30),
-            cardsImgView.topAnchor.constraint(equalTo: cardsView.topAnchor),
-            cardsImgView.bottomAnchor.constraint(equalTo: cardsView.bottomAnchor),
+            cardsButton.leadingAnchor.constraint(equalTo: cardsView.leadingAnchor),
+            cardsButton.widthAnchor.constraint(equalToConstant: 30),
+            cardsButton.heightAnchor.constraint(equalToConstant: 30),
+            cardsButton.topAnchor.constraint(equalTo: cardsView.topAnchor),
+            cardsButton.bottomAnchor.constraint(equalTo: cardsView.bottomAnchor),
             
-            cardsLabel.leftAnchor.constraint(equalTo: cardsImgView.rightAnchor, constant: 8),
+            cardsLabel.leftAnchor.constraint(equalTo: cardsButton.rightAnchor, constant: 8),
             cardsLabel.rightAnchor.constraint(equalTo: cardsView.rightAnchor, constant: -8),
-            cardsLabel.centerYAnchor.constraint(equalTo: cardsImgView.centerYAnchor),
+            cardsLabel.centerYAnchor.constraint(equalTo: cardsButton.centerYAnchor),
           
             
             

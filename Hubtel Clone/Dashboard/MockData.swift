@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct MenuItem{
     let title: String
-    let image: String
+    let image: UIImage
 }
 
 struct bannerItem{
@@ -30,7 +31,7 @@ struct MockData{
     
     
  
-    
+    /*
     
     
     
@@ -55,7 +56,7 @@ struct MockData{
    
     
     
-   /* private let comingSoon: ListSection = {
+   private let comingSoon: ListSection = {
         
         ListSection.comingSoon([ListItem(title: "", image: "larry"),
                              ListItem(title: "", image: "mentoring2"),

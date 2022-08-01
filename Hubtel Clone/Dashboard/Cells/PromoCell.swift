@@ -16,7 +16,7 @@ class PromoCell: UICollectionViewCell {
         let view = UIView()
         view.clipsToBounds = true
         view.layer.cornerRadius = 8
-        view.backgroundColor = .lightGray
+        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.09803921569)
         
         return view
         
@@ -53,6 +53,18 @@ class PromoCell: UICollectionViewCell {
         
     }()
     
+    var arrowImg: UIImageView = {
+        
+        let img = UIImageView()
+        img.image = UIImage(systemName: "arrow.right")
+        img.clipsToBounds = true
+        img.tintColor = .black
+       // img.layer.cornerRadius = 8
+        
+        return img
+        
+    }()
+    
     required init?(coder: NSCoder) {
         
         fatalError("init(coder:) has not been implemented")
@@ -68,6 +80,7 @@ class PromoCell: UICollectionViewCell {
         itemView.addSubview(headerlabel)
         itemView.addSubview(subLabel)
         itemView.addSubview(promoImg)
+        itemView.addSubview(arrowImg)
         
         
         setupConstrains()
@@ -81,6 +94,7 @@ class PromoCell: UICollectionViewCell {
         subLabel.translatesAutoresizingMaskIntoConstraints = false
         itemView.translatesAutoresizingMaskIntoConstraints = false
         subLabel.translatesAutoresizingMaskIntoConstraints = false
+        arrowImg.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             
@@ -94,6 +108,11 @@ class PromoCell: UICollectionViewCell {
             headerlabel.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 32),
             subLabel.leftAnchor.constraint(equalTo: itemView.leftAnchor, constant: 16),
             subLabel.topAnchor.constraint(equalTo: headerlabel.bottomAnchor, constant: 4),
+            
+            arrowImg.leftAnchor.constraint(equalTo: subLabel.rightAnchor, constant: 8),
+            arrowImg.centerYAnchor.constraint(equalTo: subLabel.centerYAnchor),
+            arrowImg.heightAnchor.constraint(equalToConstant: 20),
+            arrowImg.widthAnchor.constraint(equalToConstant: 20),
             
             promoImg.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
             promoImg.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),

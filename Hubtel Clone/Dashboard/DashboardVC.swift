@@ -12,6 +12,8 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     var collectionview: UICollectionView?
     
    // var sections = MockData.shared.pageData
+   
+    
     
     struct MenuSection {
         let title: String
@@ -99,16 +101,16 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         
         banner = bannerItem(balanceVale: "34")
         
-        let menu1 = MenuItem(title: "Groceries", image: "Groceries")
-        let menu2 = MenuItem(title: "Food", image: "Food")
-        let menu3 = MenuItem(title: "Shops", image: "Shops")
+        let menu1 = MenuItem(title: "Groceries", image: #imageLiteral(resourceName: "groceries"))
+        let menu2 = MenuItem(title: "Food", image: #imageLiteral(resourceName: "chicken"))
+        let menu3 = MenuItem(title: "Shops", image: #imageLiteral(resourceName: "shops"))
         
-        let menu4 = MenuItem(title: "Send Money", image: "mentor")
-        let menu5 = MenuItem(title: "Top Up & Betting", image: "mentor")
-        let menu6 = MenuItem(title: "Pay Bills", image: "mentor")
+        let menu4 = MenuItem(title: "Send Money", image: #imageLiteral(resourceName: "sendmoney"))
+        let menu5 = MenuItem(title: "Top Up & Betting", image: #imageLiteral(resourceName: "prepaid"))
+        let menu6 = MenuItem(title: "Pay Bills", image: #imageLiteral(resourceName: "bill"))
         
-        let menu7 = MenuItem(title: "SMS & Money", image: "mentor")
-        let menu8 = MenuItem(title: "Request Money", image: "mentor")
+        let menu7 = MenuItem(title: "SMS & Money", image: #imageLiteral(resourceName: "sms"))
+        let menu8 = MenuItem(title: "Request Money", image: #imageLiteral(resourceName: "payment"))
         
         
         
@@ -380,7 +382,8 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         if(indexPath.section == 0){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopBannerCell.identifier , for: indexPath) as! TopBannerCell
             
-            cell.backgroundColor = .lightGray
+            
+            cell.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.2524197812)
             
             return cell
         }else if(indexPath.section == 1){
@@ -389,6 +392,9 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCell.identifier , for: indexPath) as! MenuCell
             
             let title = menusection[indexPath.section - 1].data[indexPath.row].title
+            let image = menusection[indexPath.section - 1].data[indexPath.row].image
+            
+            cell.itemImage.image = image
             
             cell.itemLabel.text = title
            
@@ -438,7 +444,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 
                  let date = transactionSections[indexPath.section - 3].date
                 
-                header.backgroundColor = .lightGray
+                header.backgroundColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.09803921569)
                 header.headerlabel.text = date
                 header.headerlabel.font = header.headerlabel.font.withSize(14)
             }

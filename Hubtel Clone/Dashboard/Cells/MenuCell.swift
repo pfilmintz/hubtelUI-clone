@@ -17,7 +17,7 @@ class MenuCell: UICollectionViewCell {
         let view = UIView()
         view.clipsToBounds = true
         view.layer.cornerRadius = 8
-        view.backgroundColor = .lightGray
+        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.09803921569)
         
         return view
         
@@ -26,7 +26,7 @@ class MenuCell: UICollectionViewCell {
     var itemImage: UIImageView = {
         
         let img = UIImageView()
-        img.image = UIImage(systemName: "person.circle")
+       // img.image = UIImage(systemName: "person.circle")
         return img
         
     }()
