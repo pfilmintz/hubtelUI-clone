@@ -130,14 +130,14 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         menusection.append(section)
         
         
-        let trans1 = Transaction(name: "SportyBet", time: "03:55 GMT", compName: "SportyBet", amount: "GHS 99.00", isDone: true,date:"Mar 10 2022" )
+        let trans1 = Transaction(name: "KFC", time: "03:55 GMT", compName: "kfc", amount: "GHS 99.00", isDone: true,date:"Mar 10 2022" )
         
-        let trans2 = Transaction(name: "SportyBet", time: "02:23 GMT", compName: "SportyBet", amount: "GHS 50.00", isDone: true,date:"Mar 5 2022" )
-        let trans3 = Transaction(name: "SportyBet", time: "02:22 GMT", compName: "SportyBet", amount: "GHS 13.00", isDone: true,date:"Mar 5 2022" )
-        let trans4 = Transaction(name: "SportyBet", time: "01:51GMT", compName: "SportyBet", amount: "GHS 10.00", isDone: true,date:"Mar 5 2022" )
-        let trans5 = Transaction(name: "SportyBet", time: "17:39GMT", compName: "SportyBet", amount: "GHS 39.00", isDone: true,date:"Mar 3 2022" )
-        let trans6 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 3 2022" )
-        let trans7 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 10 2022" )
+        let trans2 = Transaction(name: "KFC", time: "02:23 GMT", compName: "kfc", amount: "GHS 50.00", isDone: true,date:"Mar 5 2022" )
+        let trans3 = Transaction(name: "KFC", time: "02:22 GMT", compName: "kfc", amount: "GHS 13.00", isDone: true,date:"Mar 5 2022" )
+        let trans4 = Transaction(name: "KFC", time: "01:51GMT", compName: "kfc", amount: "GHS 10.00", isDone: true,date:"Mar 5 2022" )
+        let trans5 = Transaction(name: "KFC", time: "17:39GMT", compName: "kfc", amount: "GHS 39.00", isDone: true,date:"Mar 3 2022" )
+        let trans6 = Transaction(name: "KFC", time: "11:GMT", compName: "kfc", amount: "GH39", isDone: true,date:"Mar 3 2022" )
+        let trans7 = Transaction(name: "KFC", time: "11:GMT", compName: "kfc", amount: "GH39", isDone: true,date:"Mar 10 2022" )
         
         
         

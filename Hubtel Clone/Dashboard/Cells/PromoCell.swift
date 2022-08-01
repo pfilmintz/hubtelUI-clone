@@ -45,7 +45,8 @@ class PromoCell: UICollectionViewCell {
     var promoImg: UIImageView = {
         
         let img = UIImageView()
-        img.image = UIImage(systemName: "person.circle")
+        img.backgroundColor = .blue
+        img.image = #imageLiteral(resourceName: "hubtel")
         img.clipsToBounds = true
         img.layer.cornerRadius = 8
         
@@ -77,11 +78,15 @@ class PromoCell: UICollectionViewCell {
         
         
         contentView.addSubview(itemView)
+        itemView.addSubview(promoImg)
         itemView.addSubview(headerlabel)
         itemView.addSubview(subLabel)
-        itemView.addSubview(promoImg)
+        
         itemView.addSubview(arrowImg)
         
+        contentView.bringSubviewToFront(headerlabel)
+        contentView.bringSubviewToFront(subLabel)
+        contentView.bringSubviewToFront(arrowImg)
         
         setupConstrains()
         
@@ -103,6 +108,10 @@ class PromoCell: UICollectionViewCell {
             itemView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
             itemView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
             
+            promoImg.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
+            promoImg.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
+            promoImg.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            promoImg.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
         
             headerlabel.leftAnchor.constraint(equalTo: itemView.leftAnchor, constant: 16),
             headerlabel.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 32),
@@ -112,12 +121,9 @@ class PromoCell: UICollectionViewCell {
             arrowImg.leftAnchor.constraint(equalTo: subLabel.rightAnchor, constant: 8),
             arrowImg.centerYAnchor.constraint(equalTo: subLabel.centerYAnchor),
             arrowImg.heightAnchor.constraint(equalToConstant: 20),
-            arrowImg.widthAnchor.constraint(equalToConstant: 20),
+            arrowImg.widthAnchor.constraint(equalToConstant: 20)
             
-            promoImg.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
-            promoImg.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
-            promoImg.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            promoImg.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor)
+          
             
         ])
         

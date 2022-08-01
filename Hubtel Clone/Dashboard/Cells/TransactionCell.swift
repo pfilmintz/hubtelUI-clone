@@ -48,7 +48,7 @@ class TransactionCell: UICollectionViewCell {
     var compImg: UIImageView = {
         
         let img = UIImageView()
-        img.image = UIImage(systemName: "person.circle")
+        img.image =  #imageLiteral(resourceName: "KFC")
         img.clipsToBounds = true
       
         
@@ -59,7 +59,8 @@ class TransactionCell: UICollectionViewCell {
     var statusImg: UIImageView = {
         
         let img = UIImageView()
-        img.image = UIImage(systemName: "person.circle")
+        img.image = UIImage(systemName: "checkmark.circle.fill")
+        img.tintColor = #colorLiteral(red: 0.2312995279, green: 0.8049846611, blue: 0.7610384395, alpha: 1)
         img.clipsToBounds = true
      
         
