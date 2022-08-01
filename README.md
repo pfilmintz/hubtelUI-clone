@@ -1,5 +1,5 @@
 # hubtelUI-clone
-Cloned the Hubtel App dashboard using CollectionView Flowlayout and Programmatic UI.
+Cloned the Hubtel App dashboard using CollectionView Multi Section Compostional layout and Programmatic UI.
 
 ## ScreenShots
 <img src="https://user-images.githubusercontent.com/17326822/182204898-c52c98d3-86c9-4b2c-ac74-c89da97d8703.png" width="300" height="534">
