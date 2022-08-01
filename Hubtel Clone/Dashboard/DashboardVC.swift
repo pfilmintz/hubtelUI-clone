@@ -18,8 +18,26 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         let data: [MenuItem]
     }
     
+    struct Transaction{
+        let name: String
+        let time: String
+        let compName: String
+        let amount: String
+        let isDone: Bool
+        let date: String
+    }
+    
+    struct TransactionSection{
+        let date: String
+        let transactions: [Transaction]
+    }
     
    
+    var transactionSections = [TransactionSection]()
+    
+    var transactions = [Transaction]()
+    var transactions2 = [Transaction]()
+    var transactions3 = [Transaction]()
     
     
     var sections = [Section]()
@@ -34,16 +52,50 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         
         banner = bannerItem(balanceVale: "34")
         
+        
+        let trans1 = Transaction(name: "SportyBet", time: "11:00 GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 10 2022" )
+        
+        let trans2 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 5 2022" )
+        let trans3 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 5 2022" )
+        let trans4 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 5 2022" )
+        let trans5 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 3 2022" )
+        let trans6 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 3 2022" )
+        let trans7 = Transaction(name: "SportyBet", time: "11:GMT", compName: "SportyBet", amount: "GH39", isDone: true,date:"Mar 10 2022" )
+        
+        
+        transactions.append(trans1)
+        
+        transactions2.append(trans2)
+        transactions2.append(trans3)
+        transactions2.append(trans4)
+        
+        
+        transactions3.append(trans5)
+        transactions3.append(trans6)
+        
+        
+        let transactionSection1 = TransactionSection(date: "Mar 10 2022", transactions: transactions)
+        let transactionSection2 = TransactionSection(date: "Mar 5 2022", transactions: transactions2)
+        let transactionSection3 = TransactionSection(date: "Mar 3 2022", transactions: transactions3)
+        
+        transactionSections.append(transactionSection1)
+        transactionSections.append(transactionSection2)
+        transactionSections.append(transactionSection3)
+        
+        
         let menu1 = MenuItem(title: "Groceries", image: "Groceries")
         let menu2 = MenuItem(title: "Food", image: "Food")
         let menu3 = MenuItem(title: "Shops", image: "Shops")
         
-        let menu4 = MenuItem(title: "3232", image: "mentor")
-        let menu5 = MenuItem(title: "3232", image: "mentor")
-        let menu6 = MenuItem(title: "3232", image: "mentor")
+        let menu4 = MenuItem(title: "Send Money", image: "mentor")
+        let menu5 = MenuItem(title: "Top Up & Betting", image: "mentor")
+        let menu6 = MenuItem(title: "Pay Bills", image: "mentor")
         
-        let menu7 = MenuItem(title: "3232", image: "mentor")
-        let menu8 = MenuItem(title: "3232", image: "mentor")
+        let menu7 = MenuItem(title: "SMS & Money", image: "mentor")
+        let menu8 = MenuItem(title: "Request Money", image: "mentor")
+        
+        
+        
         
         menuitems.append(menu1)
         menuitems.append(menu2)
@@ -74,7 +126,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         collectionview.register(TopBannerCell.self, forCellWithReuseIdentifier: TopBannerCell.identifier)
         
         collectionview.register(MenuCell.self, forCellWithReuseIdentifier: MenuCell.identifier)
-     
+        collectionview.register(TransactionCell.self, forCellWithReuseIdentifier: TransactionCell.identifier)
         
         collectionview.register(PromoCell.self, forCellWithReuseIdentifier: PromoCell.identifier)
         
@@ -196,7 +248,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 
             }
             
-            }else{
+            }else if sectionIndex == 2{
                 //item
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 //group
@@ -212,6 +264,41 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 //prevent header from following padding insets of main cell
                 section.supplementariesFollowContentInsets = false
                 
+                
+
+               
+                    
+          
+                    
+                section.boundarySupplementaryItems = [self.supplementaryFooterItem()]
+                
+                return section
+            }else{
+                //item
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                //group
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.1)), subitems: [item])
+                //section
+                let section = NSCollectionLayoutSection(group: group)
+                //scroll behavior/direction
+                section.orthogonalScrollingBehavior = .none
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 10, leading: 15, bottom: 10, trailing: 15)
+                
+                
+                //prevent header from following padding insets of main cell
+                section.supplementariesFollowContentInsets = false
+                
+                
+
+                let headerHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                             heightDimension: .estimated(24))
+                    
+                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerHeaderSize,elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
+                    
+                section.boundarySupplementaryItems = [sectionHeader]
+               
                 return section
             }
          
@@ -222,6 +309,12 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
      
     }
     
+    
+    
+    func supplementaryFooterItem() -> NSCollectionLayoutBoundarySupplementaryItem{
+        NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .bottom)
+       }
+    
     func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem{
         NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
        }
@@ -230,7 +323,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     
     
     func numberOfSections (in collectionview: UICollectionView) -> Int {
-        return sections.count + 2
+        return sections.count + 2 + transactionSections.count
         
     }
     
@@ -240,8 +333,10 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             
         }else if section == 1{
             return sections[section - 1].data.count
-        } else{
+        } else if section == 2{
             return 1
+        }else{
+            return transactionSections[section - 3].transactions.count
         }
     }
     
@@ -268,12 +363,26 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             return cell
                // return HeaderCell()
             }
-        else{
+        else if(indexPath.section == 2){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoCell.identifier , for: indexPath) as! PromoCell
             
             
             return cell
-        }
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionCell.identifier , for: indexPath) as! TransactionCell
+            
+            let title = transactionSections[indexPath.section - 3].transactions[indexPath.row].name
+            let amount = transactionSections[indexPath.section - 3].transactions[indexPath.row].amount
+            let time = transactionSections[indexPath.section - 3].transactions[indexPath.row].time
+            
+            cell.compTitleLabel.text = title
+            cell.amountLabel.text = amount
+            cell.compLabel.text = title
+            cell.timeLabel.text = time
+            
+            
+            return cell
+            }
         
         
         
@@ -284,8 +393,19 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
             
+            header.headerlabel.font = UIFont.boldSystemFont(ofSize: 22)
             
-           // header.headerlabel.text = "title"
+            if(indexPath.section == 2){
+            header.headerlabel.text = "Transactions"
+            }
+            if(indexPath.section > 2){
+                
+                 let date = transactionSections[indexPath.section - 3].date
+                
+                header.backgroundColor = .lightGray
+                header.headerlabel.text = date
+                header.headerlabel.font = header.headerlabel.font.withSize(14)
+            }
             
             return header
         default:

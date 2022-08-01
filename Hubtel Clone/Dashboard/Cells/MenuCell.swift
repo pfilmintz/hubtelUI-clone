@@ -33,8 +33,8 @@ class MenuCell: UICollectionViewCell {
     
     var itemLabel: UILabel = {
        let label = UILabel()
-        label.font = label.font.withSize(10)
-        label.text = "dsadasd"
+        label.font = label.font.withSize(12)
+        
         
         return label
     }()
@@ -81,7 +81,7 @@ func setupConstrains(){
     itemImage.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 8),
     
     itemLabel.leftAnchor.constraint(equalTo: itemView.leftAnchor, constant: 8),
-    itemLabel.topAnchor.constraint(equalTo: itemImage.bottomAnchor, constant: 8)
+    itemLabel.topAnchor.constraint(equalTo: itemImage.bottomAnchor, constant: 12)
     
     ])
     

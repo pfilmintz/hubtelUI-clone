@@ -134,8 +134,8 @@ class TopBannerCell: UICollectionViewCell {
         //    cardsView.widthAnchor.constraint(equalToConstant: 144),
             
             cardsImgView.leadingAnchor.constraint(equalTo: cardsView.leadingAnchor),
-            cardsImgView.widthAnchor.constraint(equalToConstant: 44),
-            cardsImgView.heightAnchor.constraint(equalToConstant: 44),
+            cardsImgView.widthAnchor.constraint(equalToConstant: 30),
+            cardsImgView.heightAnchor.constraint(equalToConstant: 30),
             cardsImgView.topAnchor.constraint(equalTo: cardsView.topAnchor),
             cardsImgView.bottomAnchor.constraint(equalTo: cardsView.bottomAnchor),
             
