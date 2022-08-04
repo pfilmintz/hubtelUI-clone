@@ -51,6 +51,7 @@ class DashboardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         super.viewDidLoad()
         
         
+        overrideUserInterfaceStyle = .light
         
         getItems()
         

@@ -14,7 +14,10 @@ class TopBannerCell: UICollectionViewCell {
     var balanceLabel: UILabel = {
         let label = UILabel()
         label.text = "Hubtel Balance"
-        label.font = label.font.withSize(12)
+       
+        
+        
+        label.font = UIFont(name: "Avenir", size: 12)
         return label
         
     }()
@@ -57,6 +60,7 @@ class TopBannerCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Cards & Wallets"
         label.font = UIFont.boldSystemFont(ofSize: 12)
+        
         return label
         
     }()

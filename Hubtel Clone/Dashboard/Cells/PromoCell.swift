@@ -27,8 +27,9 @@ class PromoCell: UICollectionViewCell {
         let headerlabel = UILabel()
         headerlabel.text = "Add money to \nyour SMS"
         headerlabel.numberOfLines = 2
+        headerlabel.font = UIFont(name: "Avenir", size: 22)
         
-        headerlabel.font = headerlabel.font.withSize(22)
+        
         return headerlabel
         
     }()
@@ -37,7 +38,8 @@ class PromoCell: UICollectionViewCell {
         
         let subLabel = UILabel()
         subLabel.text = "Send with Hubtel"
-        subLabel.font = subLabel.font.withSize(12)
+        subLabel.font = UIFont(name: "Avenir", size: 12)
+      
         return subLabel
         
     }()
